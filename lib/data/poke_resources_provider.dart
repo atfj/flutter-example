@@ -8,6 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_example/data/entities/poke_list_items.dart';
 import 'package:flutter_example/data/entities/poke_resource_query.dart';
 import 'package:flutter_example/data/entities/pokemon.dart';
+import 'package:flutter_example/data/entities/pokemon_summary.dart';
 import 'package:flutter_example/data/http_client_provider.dart';
 
 const baseUrl = 'https://pokeapi.co/api/v2/pokemon/';
@@ -28,5 +29,11 @@ final pokemonProvider = FutureProvider.family((ref, String name) async {
 
 final pokemonListProvider = Provider.family((ref, PokeResourceQuery query) {
   final resources = ref.watch(pokeResourcesProvider(query)).value?.results ?? [];
-  return resources;
+  return resources
+      .map((e) => ref.watch(pokemonProvider(e.name)).value)
+      .whereType<Pokemon>()
+      .map((poke) => PokemonSummary(
+        name: poke.name,
+        iconUrl: poke.sprites.frontDefault ?? ''
+      )).toList();
 });
