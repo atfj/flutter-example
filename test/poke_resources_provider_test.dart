@@ -13,4 +13,10 @@ void main() {
     final resources = await container.read(pokeResourcesProvider(query).future);
     expect(resources.results.length, 3);
   });
+
+  test('pokemon fetching test', () async {
+    final container = ProviderContainer();
+    final resources = await container.read(pokemonProvider("clefairy").future);
+    expect(resources.name, "clefairy");
+  });
 }
