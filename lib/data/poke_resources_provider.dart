@@ -17,3 +17,8 @@ final pokeResourcesProvider = FutureProvider.family((ref, PokeResourceQuery quer
   final json = jsonDecode(result.body) as Map<String, dynamic>;
   return PokeListItems.fromJson(json);
 });
+
+final pokemonListProvider = Provider.family((ref, PokeResourceQuery query) {
+  final resources = ref.watch(pokeResourcesProvider(query)).value?.results ?? [];
+  return resources;
+});
