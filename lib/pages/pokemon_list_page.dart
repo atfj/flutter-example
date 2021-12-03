@@ -6,7 +6,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
 import 'package:flutter_example/data/entities/pokemon_summary.dart';
-import 'package:flutter_example/data/poke_resources_provider.dart';
 import 'package:flutter_example/pages/pokemon_list_controller.dart';
 
 class PokemonListPage extends StatelessWidget {
