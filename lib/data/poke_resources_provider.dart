@@ -27,13 +27,16 @@ final pokemonProvider = FutureProvider.family((ref, String name) async {
   return Pokemon.fromJson(json);
 });
 
-final pokemonListProvider = Provider.family((ref, PokeResourceQuery query) {
-  final resources = ref.watch(pokeResourcesProvider(query)).value?.results ?? [];
-  return resources
-      .map((e) => ref.watch(pokemonProvider(e.name)).value)
-      .whereType<Pokemon>()
-      .map((poke) => PokemonSummary(
-        name: poke.name,
-        iconUrl: poke.sprites.frontDefault ?? ''
-      )).toList();
+final pokemonListProvider = Provider.family((ref, PokeResourceQuery query) async {
+  final resources = await ref.watch(pokeResourcesProvider(query).future);
+  final list = resources.results
+      .map((e) async { 
+        final poke = await ref.watch(pokemonProvider(e.name).future);
+        return PokemonSummary(
+          name: poke.name, 
+          iconUrl: poke.sprites.frontDefault ?? ''
+        );
+      }).toList();
+  return Future.wait(list);
 });
+

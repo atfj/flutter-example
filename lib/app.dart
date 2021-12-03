@@ -1,6 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_example/page/pokemon_list_page.dart';
+
+// Project imports:
+import 'package:flutter_example/pages/pokemon_list_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
