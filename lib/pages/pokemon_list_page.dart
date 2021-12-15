@@ -18,9 +18,7 @@ class PokemonListPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Flutter Example'),
       ),
-      body: Center(
-        child: _PokemonListView()
-      )
+      body: _PokemonListView()
     );
   }
 }
@@ -48,7 +46,7 @@ class _PokemonListView extends ConsumerWidget {
            ],
         ), 
         error: (e, _) => const Text('Error'), 
-        loading: () => const CircularProgressIndicator()
+        loading: () => const LinearProgressIndicator()
       )
     );
   }
