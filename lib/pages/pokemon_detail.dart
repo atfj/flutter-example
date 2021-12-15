@@ -51,6 +51,7 @@ class _PokemonDetail extends ConsumerWidget {
           _DetailTable(
             weight: '${poke.weight.toDouble() / 10.0} kg',
             height: '${poke.height.toDouble() / 10.0} m',
+            type: poke.types.map((e) => e.type.name).join(', ').toString(),
           )
         ],),
       ),
@@ -64,17 +65,23 @@ class _DetailTable extends StatelessWidget {
   const _DetailTable({
     Key? key, 
     required this.weight,
-    required this.height
+    required this.height,
+    required this.type
   }) : super(key: key);
 
   final String weight;
   final String height;
+  final String type;
   
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 250,
       child: Table(children: [
+        TableRow(children: [
+          const _TableTitleCell(title: 'Type'),
+          _TableDescriptionCell(description: type,)
+        ]),
         TableRow(children: [
           const _TableTitleCell(title: 'Weight',),
           _TableDescriptionCell(description: weight,),
