@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import 'package:flutter_example/data/entities/pokemon_sprites.dart';
+import 'package:flutter_example/data/entities/pokemon_type.dart';
 
 part 'pokemon.freezed.dart';
 
@@ -16,7 +17,8 @@ abstract class Pokemon with _$Pokemon {
     required String name,
     required int height,
     required int weight,
-    required PokemonSprites sprites
+    required PokemonSprites sprites,
+    required List<PokemonType> types
   }) = _Pokemon;
 
   // ignore: prefer_constructors_over_static_methods 
@@ -25,6 +27,9 @@ abstract class Pokemon with _$Pokemon {
     name: json['name'], 
     height: json['height'] as int, 
     weight: json['weight'] as int,
-    sprites: PokemonSprites.fromJson(json['sprites'] as Map<String, dynamic>)
+    sprites: PokemonSprites.fromJson(json['sprites'] as Map<String, dynamic>),
+    types: (json['types'] as List<dynamic>)
+          .map((e) => PokemonType.fromJson(e as Map<String, dynamic>))
+          .toList()
   );
 }

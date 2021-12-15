@@ -39,4 +39,3 @@ final pokemonListProvider = Provider.family((ref, PokeResourceQuery query) async
       }).toList();
   return Future.wait(list);
 });
-
