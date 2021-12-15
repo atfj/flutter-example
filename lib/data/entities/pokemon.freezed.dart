@@ -22,13 +22,15 @@ class _$PokemonTearOff {
       required String name,
       required int height,
       required int weight,
-      required PokemonSprites sprites}) {
+      required PokemonSprites sprites,
+      required List<PokemonType> types}) {
     return _Pokemon(
       id: id,
       name: name,
       height: height,
       weight: weight,
       sprites: sprites,
+      types: types,
     );
   }
 }
@@ -43,6 +45,7 @@ mixin _$Pokemon {
   int get height => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
   PokemonSprites get sprites => throw _privateConstructorUsedError;
+  List<PokemonType> get types => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PokemonCopyWith<Pokemon> get copyWith => throw _privateConstructorUsedError;
@@ -53,7 +56,12 @@ abstract class $PokemonCopyWith<$Res> {
   factory $PokemonCopyWith(Pokemon value, $Res Function(Pokemon) then) =
       _$PokemonCopyWithImpl<$Res>;
   $Res call(
-      {int id, String name, int height, int weight, PokemonSprites sprites});
+      {int id,
+      String name,
+      int height,
+      int weight,
+      PokemonSprites sprites,
+      List<PokemonType> types});
 
   $PokemonSpritesCopyWith<$Res> get sprites;
 }
@@ -73,6 +81,7 @@ class _$PokemonCopyWithImpl<$Res> implements $PokemonCopyWith<$Res> {
     Object? height = freezed,
     Object? weight = freezed,
     Object? sprites = freezed,
+    Object? types = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -95,6 +104,10 @@ class _$PokemonCopyWithImpl<$Res> implements $PokemonCopyWith<$Res> {
           ? _value.sprites
           : sprites // ignore: cast_nullable_to_non_nullable
               as PokemonSprites,
+      types: types == freezed
+          ? _value.types
+          : types // ignore: cast_nullable_to_non_nullable
+              as List<PokemonType>,
     ));
   }
 
@@ -112,7 +125,12 @@ abstract class _$PokemonCopyWith<$Res> implements $PokemonCopyWith<$Res> {
       __$PokemonCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int id, String name, int height, int weight, PokemonSprites sprites});
+      {int id,
+      String name,
+      int height,
+      int weight,
+      PokemonSprites sprites,
+      List<PokemonType> types});
 
   @override
   $PokemonSpritesCopyWith<$Res> get sprites;
@@ -134,6 +152,7 @@ class __$PokemonCopyWithImpl<$Res> extends _$PokemonCopyWithImpl<$Res>
     Object? height = freezed,
     Object? weight = freezed,
     Object? sprites = freezed,
+    Object? types = freezed,
   }) {
     return _then(_Pokemon(
       id: id == freezed
@@ -156,6 +175,10 @@ class __$PokemonCopyWithImpl<$Res> extends _$PokemonCopyWithImpl<$Res>
           ? _value.sprites
           : sprites // ignore: cast_nullable_to_non_nullable
               as PokemonSprites,
+      types: types == freezed
+          ? _value.types
+          : types // ignore: cast_nullable_to_non_nullable
+              as List<PokemonType>,
     ));
   }
 }
@@ -168,7 +191,8 @@ class _$_Pokemon with DiagnosticableTreeMixin implements _Pokemon {
       required this.name,
       required this.height,
       required this.weight,
-      required this.sprites});
+      required this.sprites,
+      required this.types});
 
   @override
   final int id;
@@ -180,10 +204,12 @@ class _$_Pokemon with DiagnosticableTreeMixin implements _Pokemon {
   final int weight;
   @override
   final PokemonSprites sprites;
+  @override
+  final List<PokemonType> types;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Pokemon(id: $id, name: $name, height: $height, weight: $weight, sprites: $sprites)';
+    return 'Pokemon(id: $id, name: $name, height: $height, weight: $weight, sprites: $sprites, types: $types)';
   }
 
   @override
@@ -195,7 +221,8 @@ class _$_Pokemon with DiagnosticableTreeMixin implements _Pokemon {
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('height', height))
       ..add(DiagnosticsProperty('weight', weight))
-      ..add(DiagnosticsProperty('sprites', sprites));
+      ..add(DiagnosticsProperty('sprites', sprites))
+      ..add(DiagnosticsProperty('types', types));
   }
 
   @override
@@ -207,12 +234,13 @@ class _$_Pokemon with DiagnosticableTreeMixin implements _Pokemon {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.weight, weight) || other.weight == weight) &&
-            (identical(other.sprites, sprites) || other.sprites == sprites));
+            (identical(other.sprites, sprites) || other.sprites == sprites) &&
+            const DeepCollectionEquality().equals(other.types, types));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, height, weight, sprites);
+  int get hashCode => Object.hash(runtimeType, id, name, height, weight,
+      sprites, const DeepCollectionEquality().hash(types));
 
   @JsonKey(ignore: true)
   @override
@@ -226,7 +254,8 @@ abstract class _Pokemon implements Pokemon {
       required String name,
       required int height,
       required int weight,
-      required PokemonSprites sprites}) = _$_Pokemon;
+      required PokemonSprites sprites,
+      required List<PokemonType> types}) = _$_Pokemon;
 
   @override
   int get id;
@@ -238,6 +267,8 @@ abstract class _Pokemon implements Pokemon {
   int get weight;
   @override
   PokemonSprites get sprites;
+  @override
+  List<PokemonType> get types;
   @override
   @JsonKey(ignore: true)
   _$PokemonCopyWith<_Pokemon> get copyWith =>
