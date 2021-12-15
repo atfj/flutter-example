@@ -46,7 +46,36 @@ class _PokemonDetail extends ConsumerWidget {
               Image.network(poke.sprites.frontDefault!) :
               const Text('No Image'),
           const SizedBox(height: 16,),
-          Text(name)
+          Text(name),
+          const SizedBox(height: 32,),
+          SizedBox(
+            width: 250,
+            child: Table(children: [
+              TableRow(children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  color: Colors.blueGrey.shade100,
+                  child: const Center(child: Text("item 1"),)
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: const Center(child: Text("item 2"),)
+                ),
+              ]),
+              TableRow(children:[
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  color: Colors.blueGrey.shade100,
+                  child: const Center(child: Text("item 3"),)
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: const Center(child: Text("item 4"),)
+                ),
+              ]),
+            ],
+            border: TableBorder.all(color: Colors.blueGrey),),
+          )
         ],),
       ),
       error: (e, _) => const Center(child: Text('Error'),), 
