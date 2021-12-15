@@ -48,7 +48,7 @@ class _PokemonListView extends ConsumerWidget {
            ],
         ), 
         error: (e, _) => const Text('Error'), 
-        loading: () => const LinearProgressIndicator()
+        loading: () => const CircularProgressIndicator()
       )
     );
   }
