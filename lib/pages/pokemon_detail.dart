@@ -2,8 +2,13 @@
 import 'package:flutter/material.dart';
 
 class PokemonDetail extends StatelessWidget {
-  const PokemonDetail({Key? key}) : super(key: key);
+  const PokemonDetail({
+    Key? key,
+    required this.name
+  }) : super(key: key);
 
+  final String name;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,15 +16,22 @@ class PokemonDetail extends StatelessWidget {
         title: const Text('Flutter Example'),
       ),
       body: Center(
-        child: _PokemonDetail()
+        child: _PokemonDetail(name: name,)
       )
     );
   }
 }
 
 class _PokemonDetail extends StatelessWidget {
+  const _PokemonDetail({
+    Key? key,
+    required this.name
+  }) : super(key: key);
+
+  final String name;
+
   @override
   Widget build(BuildContext context) {
-    return const Text('test');
+    return Text(name);
   }
 }

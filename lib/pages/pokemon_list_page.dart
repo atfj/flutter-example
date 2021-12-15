@@ -72,7 +72,7 @@ class _PokemonListItem extends StatelessWidget {
       onPressed: () {
         Navigator.push(
           context, 
-          MaterialPageRoute(builder: (context) => const PokemonDetail())
+          MaterialPageRoute(builder: (context) => PokemonDetail(name: name))
         );
       },
       child: Column(
