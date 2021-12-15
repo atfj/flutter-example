@@ -48,7 +48,10 @@ class _PokemonDetail extends ConsumerWidget {
           const SizedBox(height: 16,),
           Text(name),
           const SizedBox(height: 32,),
-          _DetailTable()
+          _DetailTable(
+            weight: '${poke.weight.toDouble() / 10.0} kg',
+            height: '${poke.height.toDouble() / 10.0} m',
+          )
         ],),
       ),
       error: (e, _) => const Center(child: Text('Error'),), 
@@ -58,18 +61,27 @@ class _PokemonDetail extends ConsumerWidget {
 }
 
 class _DetailTable extends StatelessWidget {
+  const _DetailTable({
+    Key? key, 
+    required this.weight,
+    required this.height
+  }) : super(key: key);
+
+  final String weight;
+  final String height;
+  
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 250,
       child: Table(children: [
         TableRow(children: [
-          _TableTitleCell(),
-          _TableDescriptionCell(),
+          const _TableTitleCell(title: 'Weight',),
+          _TableDescriptionCell(description: weight,),
         ]),
         TableRow(children:[
-          _TableTitleCell(),
-          _TableDescriptionCell(),
+          const _TableTitleCell(title: 'Height',),
+          _TableDescriptionCell(description: height,),
         ]),
       ],
       border: TableBorder.all(color: Colors.blueGrey),),
@@ -78,22 +90,36 @@ class _DetailTable extends StatelessWidget {
 }
 
 class _TableDescriptionCell extends StatelessWidget {
+  const _TableDescriptionCell({
+    Key? key, 
+    required this.description
+  }) : super(key: key);
+
+  final String description;
+  
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),
-      child: const Center(child: Text("item 2"),)
+      child: Center(child: Text(description),)
     );
   }
 }
 
 class _TableTitleCell extends StatelessWidget {
+  const _TableTitleCell({
+    Key? key, 
+    required this.title
+  }) : super(key: key);
+  
+  final String title;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),
       color: Colors.blueGrey.shade100,
-      child: const Center(child: Text("item 1"),)
+      child: Center(child: Text(title),)
     );
   }
 }
