@@ -48,38 +48,52 @@ class _PokemonDetail extends ConsumerWidget {
           const SizedBox(height: 16,),
           Text(name),
           const SizedBox(height: 32,),
-          SizedBox(
-            width: 250,
-            child: Table(children: [
-              TableRow(children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  color: Colors.blueGrey.shade100,
-                  child: const Center(child: Text("item 1"),)
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: const Center(child: Text("item 2"),)
-                ),
-              ]),
-              TableRow(children:[
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  color: Colors.blueGrey.shade100,
-                  child: const Center(child: Text("item 3"),)
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: const Center(child: Text("item 4"),)
-                ),
-              ]),
-            ],
-            border: TableBorder.all(color: Colors.blueGrey),),
-          )
+          _DetailTable()
         ],),
       ),
       error: (e, _) => const Center(child: Text('Error'),), 
       loading: () => const Center(child: CircularProgressIndicator(),)
+    );
+  }
+}
+
+class _DetailTable extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 250,
+      child: Table(children: [
+        TableRow(children: [
+          _TableTitleCell(),
+          _TableDescriptionCell(),
+        ]),
+        TableRow(children:[
+          _TableTitleCell(),
+          _TableDescriptionCell(),
+        ]),
+      ],
+      border: TableBorder.all(color: Colors.blueGrey),),
+    );
+  }
+}
+
+class _TableDescriptionCell extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: const Center(child: Text("item 2"),)
+    );
+  }
+}
+
+class _TableTitleCell extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      color: Colors.blueGrey.shade100,
+      child: const Center(child: Text("item 1"),)
     );
   }
 }
