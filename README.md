@@ -1,6 +1,10 @@
 # flutter-example
 
-A new Flutter project.
+This project has been made as Flutter sample project.
+
+## Demo
+
+<!-- need to attach gif -->
 
 ## Getting Started
 
