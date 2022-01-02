@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
 import 'package:flutter_example/data/entities/pokemon_summary.dart';
+import 'package:flutter_example/pages/pokemon_detail.dart';
 import 'package:flutter_example/pages/pokemon_list_controller.dart';
 
 class PokemonListPage extends StatelessWidget {
@@ -17,9 +18,7 @@ class PokemonListPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Flutter Example'),
       ),
-      body: Center(
-        child: _PokemonListView()
-      )
+      body: _PokemonListView()
     );
   }
 }
@@ -70,7 +69,12 @@ class _PokemonListItem extends StatelessWidget {
           primary: Colors.black,
           padding: const EdgeInsets.symmetric(horizontal: 16),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context, 
+          MaterialPageRoute(builder: (context) => PokemonDetail(name: name))
+        );
+      },
       child: Column(
         children: [
           Container(

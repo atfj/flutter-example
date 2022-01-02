@@ -295,5 +295,6 @@ void main() async {
     
     expect(pokemon.name, 'clefairy');
     expect(pokemon.sprites.backDefault, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/35.png');
+    expect(pokemon.types.first.type.name, 'fairy');
   });
 }
