@@ -4,7 +4,7 @@ This project has been made as Flutter sample app.
 
 ## Preview
 
-<!-- need to attach gif -->
+![preview](images/preview.gif)
 
 ## Requirements
 - Flutter 2.6.0-12.0.pre.839 
