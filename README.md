@@ -1,16 +1,28 @@
 # flutter-example
 
-A new Flutter project.
+This project has been made as Flutter sample app.
 
-## Getting Started
+## Preview
 
-This project is a starting point for a Flutter application.
+![preview](images/preview.gif)
 
-A few resources to get you started if this is your first Flutter project:
+## Requirements
+- Flutter 2.6.0-12.0.pre.839 
+- Dart 2.16.0
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Tested with Visual Studio Code (Version 1.62.3).
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Environment
+### iOS
+iOS 9 or later
+
+### Android
+- minSdkVersion 16
+- targetSdkVersion 30
+
+## API
+[PokeAPI](https://pokeapi.co/)
+
+## License
+MIT License
+
