@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:flutter_example/pages/pokemon_list_page.dart';
+import 'package:flutter_example/pages/pokemon_list.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const PokemonListPage(),
+      home: const PokemonList(),
     );
   }
 }

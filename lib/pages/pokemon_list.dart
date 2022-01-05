@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
+import 'package:flutter_example/controller/pokemon_list_controller.dart';
 import 'package:flutter_example/data/entities/pokemon_summary.dart';
 import 'package:flutter_example/pages/pokemon_detail.dart';
-import 'package:flutter_example/pages/pokemon_list_controller.dart';
 
-class PokemonListPage extends StatelessWidget {
-  const PokemonListPage({Key? key}) : super(key: key);
+class PokemonList extends StatelessWidget {
+  const PokemonList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
